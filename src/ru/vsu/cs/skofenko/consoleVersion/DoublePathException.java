@@ -7,7 +7,7 @@ public class DoublePathException extends Exception {
         return ofWhat;
     }
 
-    public DoublePathException(String ofWhat){
-        this.ofWhat=ofWhat;
+    public DoublePathException(String ofWhat) {
+        this.ofWhat = ofWhat;
     }
 }

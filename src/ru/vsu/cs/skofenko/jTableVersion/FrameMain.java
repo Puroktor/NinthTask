@@ -26,7 +26,7 @@ public class FrameMain extends JFrame {
     private JFileChooser fileChooserOpen;
     private JFileChooser fileChooserSave;
 
-    public FrameMain(){
+    public FrameMain() {
         this.setTitle("Task 8");
         this.setContentPane(panelMain);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -51,19 +51,18 @@ public class FrameMain extends JFrame {
             try {
                 if (fileChooserOpen.showOpenDialog(panelMain) == JFileChooser.APPROVE_OPTION) {
                     List<Integer> list = CommonModule.readListFromFile(fileChooserOpen.getSelectedFile().getPath());
-                    JTableUtils.writeArrayToJTable(table1, list.stream().mapToInt(i->i).toArray());
+                    JTableUtils.writeArrayToJTable(table1, list.stream().mapToInt(i -> i).toArray());
                 }
             } catch (Exception exception) {
                 SwingUtils.showErrorMessageBox(exception);
             }
         });
         solveButton.addActionListener(e -> {
-            try{
+            try {
                 int[] inArray = JTableUtils.readIntArrayFromJTable(table1);
                 List<Integer> list = CommonModule.createNewList(CommonModule.intArrayToList(inArray));
-                JTableUtils.writeArrayToJTable(tableOut,CommonModule.intListToArray(list));
-            }
-            catch (Exception exception){
+                JTableUtils.writeArrayToJTable(tableOut, CommonModule.intListToArray(list));
+            } catch (Exception exception) {
                 SwingUtils.showErrorMessageBox(exception);
             }
         });
@@ -75,7 +74,7 @@ public class FrameMain extends JFrame {
                         file += ".txt";
                     }
                     int[] outArray = JTableUtils.readIntArrayFromJTable(tableOut);
-                    CommonModule.writeListToFile(file,CommonModule.intArrayToList(outArray));
+                    CommonModule.writeListToFile(file, CommonModule.intArrayToList(outArray));
                 }
             } catch (Exception exception) {
                 SwingUtils.showErrorMessageBox(exception);
